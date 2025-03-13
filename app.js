@@ -8,6 +8,8 @@ let {CreateErrorRes} = require('./utils/responseHandler')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var productsRouter = require('./routes/products');
+var categoryRouter = require('./routes/category');
 
 var app = express();
 
@@ -28,6 +30,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products', require('./routes/products'));
+app.use('/category', require('./routes/category'));
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
